@@ -1,0 +1,6 @@
+# Site GLS — HTML/CSS/JS vanilla
+**Nouvelle édition (ex. 2027)** : modifier surtout `js/config.js` (date, ville, thème, lieu, prix, intervenants, programme, éditions, galerie). Les Product IDs Chariow et la date/heure du sommet sont aussi dans `index.html` (widgets) : y changer les IDs si besoin.
+**Vidéo du header** : déposer `assets/videos/hero.mp4` (boucle, sans son, idéalement < 8 Mo). **Images** : `assets/images/logo-gls.png`, `hero-bg.jpg` (affiche de repli de la vidéo), `affiche.jpg` (cadre portrait de la section « Le Sommet » : remplacer ce fichier par votre affiche), `intervenants/<nom>.jpg`, `editions/2024/` et `editions/2025/` (photo1-3.jpg), `gallery/` (puis lister les chemins dans `gallery`). Sans image, des placeholders s'affichent.
+**EmailJS** : renseigner `EMAILJS_PUBLIC_KEY`, `SERVICE_ID`, `TEMPLATE_ID`, `EMAILJS_TO_EMAIL` dans `config.js`. Variables du template : {{nom}} {{prenom}} {{email}} {{whatsapp}} {{type}} {{montant}} {{reference}} {{date}} (e-mail texte, sans PDF).
+**Paiement** : redirection vers les liens Chariow `standardPayUrl` / `vipPayUrl` (dans `config.js`). le statut reste « EN ATTENTE » ; aucune confirmation Chariow n'est lue côté site (il faudrait un webhook côté serveur).
+**Test** : ouvrir via un serveur local (ex. `npx serve`).

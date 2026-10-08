@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tableau de bord — DépensePro</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="dash">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="logo">
+      <span class="badge">€</span>
+      DépensePro
+    </div>
+
+    <nav>
+      <a href="dashboard.html" class="active"><span class="ico"></span> Tableau de bord</a>
+      <a href="#"><span class="ico"></span> Transactions</a>
+      <a href="#"><span class="ico"></span> Budgets</a>
+      <a href="#"><span class="ico"></span> Statistiques</a>
+      <a href="#"><span class="ico"></span> Objectifs d'épargne</a>
+      <a href="#"><span class="ico"></span> Paramètres</a>
+    </nav>
+
+    <div class="user-box">
+      <div class="avatar" id="sidebarAvatar">KA</div>
+      <div>
+        <div class="name" id="sidebarName">Kokou Adjovi</div>
+        <div class="email" id="sidebarEmail">kokou@exemple.com</div>
+      </div>
+    </div>
+    <a href="connexion.html" class="logout" id="logoutBtn">Se déconnecter</a>
+  </aside>
+
+  <!-- ============ CONTENU PRINCIPAL ============ -->
+  <main class="dash-main">
+
+    <div class="dash-header">
+      <div>
+        <h1>Tableau de bord</h1>
+        <p class="subtitle" id="welcomeMsg">Bon retour. Voici un aperçu de vos finances.</p>
+      </div>
+      <div class="header-tools">
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="text" placeholder="Rechercher...">
+        </div>
+        <button class="icon-btn">🔔<span class="dot"></span></button>
+        <div class="avatar-top">KA</div>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:flex-end; margin-bottom:26px;">
+      <button class="btn btn-primary" id="newTxBtn">+ Nouvelle transaction</button>
+    </div>
+
+    <!-- Cartes statistiques -->
+    <section class="stat-grid" id="statGrid">
+      <!-- générées dynamiquement par script.js à partir de demoData.stats -->
+    </section>
+
+    <!-- Graphiques -->
+    <section class="charts-row">
+      <div class="card">
+        <h2>Aperçu des dépenses</h2>
+        <p class="card-sub">Sur les 7 derniers mois</p>
+        <div class="bar-chart" id="barChart"></div>
+      </div>
+
+      <div class="card">
+        <h2>Par catégorie</h2>
+        <p class="card-sub">Ce mois-ci</p>
+        <div class="donut-wrap">
+          <div class="donut" id="donutChart">
+            <div class="hole">
+              <div class="amount" id="donutTotal">0 FCFA</div>
+            </div>
+          </div>
+          <ul class="legend" id="donutLegend"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transactions + budgets -->
+    <section class="bottom-row">
+      <div class="card">
+        <div class="card-head-row">
+          <h2 style="margin:0;">Transactions récentes</h2>
+          <a href="#" class="link-btn">Voir tout</a>
+        </div>
+        <ul class="tx-list" id="txList"></ul>
+      </div>
+
+      <div class="card">
+        <h2>Suivi des budgets</h2>
+        <div id="budgetList" style="margin-top: 18px;"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

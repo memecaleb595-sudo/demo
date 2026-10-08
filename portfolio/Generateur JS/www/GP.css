@@ -1,0 +1,293 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    background-image: url(shield_bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+}
+.container{
+    display: flex;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+p{
+    color: #9BB2D0;
+}
+.bar{
+    background-color: #0B1222;
+    height: 59vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    border: solid 0.1px #80a1ce;
+    width: 100vh;
+    padding: 40px 15px;
+    justify-content: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,.4);
+}
+#password{
+    background: transparent;
+    border-radius: 10px;
+    padding: 10px 7px;
+    border: solid 2px #252F41;
+    width: 70vh;
+    height: 3vh;
+    text-align: center;
+}
+.password-box{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.password-box input{
+    color: #3cff8f;
+}
+.password-box button{
+    border-radius: 10px;
+    border: none;
+    width: 15vh;
+    height: 7vh;
+    cursor: pointer;
+    background-color: #111A2A;
+    color: #7856DD;
+}
+.lengt{
+    display: flex;
+    flex-direction: column;
+    background-color: #111929;
+    color: #D9DADF;
+    padding: 7px 10px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+}
+.lengt label{
+    margin-bottom: 7px;
+    margin-top: 7px;
+}
+.options{
+    display: flex;
+    gap: 10px;
+    padding: 0;
+    justify-content: center;
+    padding-bottom: 12px;
+}
+.options label{
+    display: flex;
+    flex-direction: column;
+    font-size: 9px;
+}
+.options label span{
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+.option{
+    border: solid 0.1px;
+    width: 50vh;
+    height: 7vh;
+    padding: 15px;
+    padding-bottom: 21px;
+    background-color: #09111F;
+    border-radius: 12px;
+    border: solid 3px #1E2739;
+    text-align: center;
+}
+.enca{
+    background-color: hsl(224, 49%, 11%);
+    padding: 10px 9px;
+    border-radius: 12px;
+      margin-bottom: 10px;
+    margin-top: 20px;
+}
+.Aa{
+    color: #2BB999;
+}
+.aa{
+    color: #31B298;
+}
+.ch{
+    color: #2A70E2;
+}
+.carac{
+    color: #FCD147;
+}
+#generate{
+    outline: none;
+    margin-top: 10px;
+    padding: 9px;
+    height: 20vh;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .9s;
+    background:linear-gradient(90deg,#7d4cff,#3f72ff);
+}
+#generate:hover{
+    transform:scale(1.02);
+    box-shadow: 5px 1px 5px blue;
+}
+.container h3{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+
+    background: linear-gradient(
+        90deg,
+        #e60707,
+        #bb9220,
+        #64B5F6,
+        #42A5F5
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+/* ========================= */
+/* Tablettes */
+/* ========================= */
+
+@media (max-width: 992px){
+
+    .bar{
+        width: 90%;
+        height: auto;
+        padding: 30px 20px;
+    }
+
+    #password{
+        width: 100%;
+    }
+
+    .password-box{
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .password-box button{
+        width: 100%;
+        height: 50px;
+    }
+
+    .options{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 10px;
+    }
+
+    .option{
+        width: auto;
+        height: auto;
+    }
+
+    #generate{
+        height: 55px;
+    }
+
+}
+/* ========================= */
+/* Téléphones */
+/* ========================= */
+
+@media (max-width: 768px){
+
+    body{
+        padding: 20px;
+    }
+
+    .container{
+        width: 100%;
+    }
+
+    .bar{
+        width: 100%;
+        padding: 20px 15px;
+    }
+
+    h3{
+        font-size: 1.3rem;
+    }
+
+    p{
+        font-size: .9rem;
+        text-align: center;
+    }
+
+    .password-box{
+        flex-direction: column;
+    }
+
+    #password{
+        width: 100%;
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .password-box button{
+        width: 100%;
+        height: 45px;
+    }
+
+    .options{
+        grid-template-columns: 1fr;
+    }
+
+    .option{
+        width: auto;
+        height: auto;
+        padding: 15px;
+    }
+
+    #generate{
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+    }
+
+}
+/* ========================= */
+/* Petits téléphones */
+/* ========================= */
+
+@media (max-width: 480px){
+
+    .container h3{
+        font-size: 1.1rem;
+    }
+
+    p{
+        font-size: .8rem;
+    }
+
+    .bar{
+        padding: 15px;
+    }
+
+    .lengt label{
+        font-size: .9rem;
+    }
+
+    .option{
+        font-size: .8rem;
+    }
+
+    .options label span{
+        font-size: 12px;
+    }
+
+    #generate{
+        font-size: 14px;
+    }
+
+}

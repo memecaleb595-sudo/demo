@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sommet Global du Leadership | GLS Cotonou 2026</title>
+<meta name="description" content="Site officiel du Sommet Global du Leadership (GLS). 31 octobre 2026 à Cotonou.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="nav" id="nav">
+  <a href="#accueil" class="brand" aria-label="Accueil GLS"><img src="assets/images/logo-gls.png" alt="Logo GLS" onerror="this.replaceWith(document.createTextNode('GLS'))"></a>
+  <nav id="menu" aria-label="Navigation principale">
+    <a href="#accueil">ACCUEIL</a><a href="#apropos">À PROPOS</a><a href="#sommet">LE SOMMET</a><a href="#intervenants">INTERVENANTS</a><a href="#programme">PROGRAMME</a><a href="#editions">ÉDITIONS</a><a href="#galerie">GALERIE</a><a href="#contact">CONTACT</a>
+  </nav>
+  <div class="nav-actions">
+    <a class="icon-btn wa-link" aria-label="WhatsApp" style="display:grid;place-items:center"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="icon-btn" id="themeBtn" aria-label="Basculer clair / sombre"><i class="fa-solid fa-moon"></i></button>
+    <a class="btn sm" href="#inscription">S'INSCRIRE</a>
+    <button class="icon-btn" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="menu"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="accueil">
+  <!-- Remplacez assets/videos/hero.mp4 par votre vidéo (lecture en boucle, sans son) -->
+  <video autoplay muted loop playsinline preload="auto" poster="assets/images/hero-bg.jpg" aria-hidden="true">
+    <source src="assets/videos/hero.mp4" type="video/mp4">
+  </video>
+  <div>
+    <span class="ed" data-cfg="edition"></span>
+    <h1>Sommet Global<br>du Leadership</h1>
+    <p class="city">GLS <span data-cfg="city"></span> <span data-cfg="year"></span></p>
+    <p class="theme">« <span data-cfg="theme" style="text-transform:none"></span> »</p>
+    <div class="meta"><span><i class="fa-regular fa-calendar"></i><span data-cfg="date"></span></span><span><i class="fa-regular fa-clock"></i><span data-cfg="time"></span></span><span><i class="fa-solid fa-location-dot"></i>EPMB Zogbo</span></div>
+    <div id="countdown">
+      <div class="cd"><b id="cd-d">00</b><span>JOURS</span></div><div class="cd"><b id="cd-h">00</b><span>HEURES</span></div>
+      <div class="cd"><b id="cd-m">00</b><span>MINUTES</span></div><div class="cd"><b id="cd-s">00</b><span>SECONDES</span></div>
+    </div>
+    <div class="btns"><a class="btn" href="#inscription"><i class="fa-solid fa-ticket"></i>JE M'INSCRIS</a><a class="btn ghost" href="#sommet">DÉCOUVRIR LE SOMMET</a></div>
+  </div>
+  <a href="#apropos" class="scroll" aria-label="Défiler vers le bas"><i class="fa-solid fa-chevron-down"></i></a>
+</section>
+
+<section id="apropos"><div class="wrap">
+  <span class="eyebrow reveal">Qui sommes-nous</span>
+  <h2 class="reveal">À propos du GLS</h2>
+  <p class="lead reveal">Le Sommet Global du Leadership est une plateforme consacrée au leadership, à l'influence, au développement des capacités et à l'impact.</p>
+  <div class="grid">
+    <article class="card pillar reveal"><i class="fa-regular fa-eye"></i><h3>Vision</h3><p>Voir émerger des leaders qui transforment leur environnement.</p></article>
+    <article class="card pillar reveal"><i class="fa-solid fa-bullseye"></i><h3>Mission</h3><p>Inspirer et outiller chaque participant pour mieux diriger et mieux influencer.</p></article>
+    <article class="card pillar reveal"><i class="fa-regular fa-gem"></i><h3>Valeurs</h3><p>Excellence, intégrité, service et impact durable.</p></article>
+  </div>
+</div></section>
+
+<section class="alt" id="sommet"><div class="wrap">
+  <span class="eyebrow reveal">L'édition</span>
+  <h2 class="reveal">Le Sommet</h2>
+  <div class="sommet-layout">
+  <div>
+    <ul class="facts reveal">
+      <li><i class="fa-solid fa-flag"></i><div><small>ÉDITION</small><span data-cfg="edition"></span> · GLS <span data-cfg="city"></span> <span data-cfg="year"></span></div></li>
+      <li><i class="fa-regular fa-lightbulb"></i><div><small>THÈME</small><span data-cfg="theme"></span></div></li>
+      <li><i class="fa-regular fa-calendar"></i><div><small>DATE</small><span data-cfg="date"></span></div></li>
+      <li><i class="fa-regular fa-clock"></i><div><small>HORAIRES</small><span data-cfg="time"></span></div></li>
+      <li><i class="fa-solid fa-location-dot"></i><div><small>LIEU</small><span data-cfg="venue"></span></div></li>
+    </ul>
+  </div>
+  <figure class="poster reveal"><img src="assets/images/affiche.jpg" alt="Affiche officielle du GLS Cotonou 2026" onerror="this.remove()"></figure>
+  </div>
+</div></section>
+
+<section id="intervenants"><div class="wrap"><span class="eyebrow reveal">La faculté</span><h2 class="reveal">Les intervenants</h2><div class="grid" id="speakers-grid"></div></div></section>
+
+<section class="alt" id="programme"><div class="wrap"><span class="eyebrow reveal">Le déroulé</span><h2 class="reveal">Programme</h2><ol class="timeline" id="timeline"></ol></div></section>
+
+<section id="inscription"><div class="wrap">
+  <span class="eyebrow reveal">Réservez votre place</span>
+  <h2 class="reveal">Inscrivez-vous au GLS</h2>
+  <div class="box">
+    <form id="regForm" novalidate>
+      <div class="fgrid">
+        <div><label for="nom">Nom</label><input type="text" id="nom" autocomplete="family-name"><span class="err" id="err-nom" role="alert"></span></div>
+        <div><label for="prenom">Prénom</label><input type="text" id="prenom" autocomplete="given-name"><span class="err" id="err-prenom" role="alert"></span></div>
+        <div><label for="email">Adresse e-mail</label><input type="email" id="email" autocomplete="email"><span class="err" id="err-email" role="alert"></span></div>
+        <div><label for="whatsapp">Numéro WhatsApp</label><input type="tel" id="whatsapp" placeholder="+229 ..." autocomplete="tel"><span class="err" id="err-whatsapp" role="alert"></span></div>
+      </div>
+      <fieldset style="border:0;padding:0;margin:18px 0 0"><legend style="font-weight:700;letter-spacing:.08em;font-size:.85rem">CHOISISSEZ VOTRE PARTICIPATION</legend>
+        <div class="plans">
+          <label class="plan"><input type="radio" name="plan" value="STANDARD"><div><b>STANDARD</b><span class="p" id="price-standard"></span><small id="note-standard"></small></div></label>
+          <label class="plan"><input type="radio" name="plan" value="VIP"><div><b><i class="fa-solid fa-crown" style="color:var(--gold)"></i> VIP</b><span class="p" id="price-vip"></span><small id="note-vip"></small></div></label>
+        </div><span class="err" id="err-plan" role="alert"></span>
+      </fieldset>
+      <p id="amount" aria-live="polite"></p>
+      <button class="btn" type="submit">VALIDER <i class="fa-solid fa-arrow-right"></i></button>
+    </form>
+
+    <div id="recap" hidden>
+      <h3>Récapitulatif</h3><dl id="recap-list"></dl>
+      <div class="row"><button class="btn ghost" id="editBtn" type="button"><i class="fa-solid fa-pen"></i>MODIFIER</button><button class="btn" id="confirmBtn" type="button"><i class="fa-solid fa-check"></i>CONFIRMER MON INSCRIPTION</button></div>
+    </div>
+
+    <div id="done" hidden>
+      <h3><i class="fa-solid fa-circle-check" style="color:var(--sky)"></i> Inscription enregistrée</h3>
+      <p>Référence : <b id="done-ref"></b></p>
+      <p><span class="status"><i class="fa-solid fa-hourglass-half"></i>Paiement en attente</span></p>
+      <p class="muted" id="email-status"></p>
+      <div id="payment" class="pay" hidden>
+        <p><b>Dernière étape : finalisez votre paiement</b></p>
+        <p class="muted">Participation <b id="pay-label"></b></p>
+        <a class="btn" id="payBtn" href="#" target="_blank" rel="noopener"><i class="fa-solid fa-lock"></i>PAYER MAINTENANT</a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="alt" id="editions"><div class="wrap"><span class="eyebrow reveal">Archives</span><h2 class="reveal">Nos éditions</h2><p class="lead reveal">Revivez les éditions précédentes en images.</p><div class="grid" id="editions-grid"></div></div></section>
+<section id="galerie"><div class="wrap"><span class="eyebrow reveal">En images</span><h2 class="reveal">Galerie</h2><div class="grid" id="gallery-grid"></div></div></section>
+
+<section class="wa-band"><div class="wrap"><span class="eyebrow">Une question ?</span><h2>Contactez-nous sur WhatsApp</h2><p class="lead"><i class="fa-brands fa-whatsapp"></i> <b class="wa-num"></b></p><a class="btn wa-link"><i class="fa-brands fa-whatsapp"></i>CONTACTER SUR WHATSAPP</a></div></section>
+
+<section id="contact"><div class="wrap"><span class="eyebrow reveal">Nous écrire</span><h2 class="reveal">Contact</h2><div class="two">
+  <div class="contact-list">
+    <div id="extra-phones"></div>
+  </div>
+  <form id="contactForm" class="box" style="margin:0;width:100%"><label for="cname" style="margin-top:0">Votre nom</label><input type="text" id="cname" name="cname" required>
+    <label for="cmsg">Message</label><textarea id="cmsg" name="cmsg" rows="4" required></textarea><div class="row"><button class="btn" type="submit"><i class="fa-regular fa-paper-plane"></i>ENVOYER</button></div></form>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+  <div><img src="assets/images/logo-gls.png" alt="Logo GLS" style="height:50px" onerror="this.remove()"><p>Sommet Global du Leadership<br><small>GLS <span data-cfg="city"></span> <span data-cfg="year"></span></small></p></div>
+  <div><h4>LIENS RAPIDES</h4><a href="#sommet">Le sommet</a><a href="#intervenants">Intervenants</a><a href="#programme">Programme</a><a href="#inscription">S'inscrire</a></div>
+  <div><h4>SUIVEZ-NOUS</h4><div class="social"><a data-social="facebook" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a><a data-social="instagram" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a data-social="youtube" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a><a class="wa-link" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a></div></div>
+</div><p class="copy">© Sommet Global du Leadership — GLS. Tous droits réservés.</p></footer>
+
+<a class="wa-float wa-link" aria-label="Écrire sur WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<div id="lightbox" hidden role="dialog" aria-label="Galerie photo"><button class="close" aria-label="Fermer"><i class="fa-solid fa-xmark"></i></button><button class="prev" aria-label="Précédente"><i class="fa-solid fa-chevron-left"></i></button><img alt=""><button class="next" aria-label="Suivante"><i class="fa-solid fa-chevron-right"></i></button></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/config.js"></script><script src="js/countdown.js"></script><script src="js/payment.js"></script>
+<script src="js/emailjs.js"></script><script src="js/registration.js"></script><script src="js/main.js"></script>
+</body></html>

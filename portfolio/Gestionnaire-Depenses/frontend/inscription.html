@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire-Depenses</title>
+    <link rel="stylesheet" href="css/inscription.css">
+</head>
+<body>
+    <div class="all">
+    <div class="gauche">
+        <div class="logo">
+            <img src="image.png">
+            <h3>DépensePro</h3>
+        </div>
+        <div class="phrase">
+            <h2>Maitrisez vos<br>finances au<BR><span class="qu">quotidien</span></h2>
+                <div class="p">
+                    <p>Suivez vos dépenses, fixez des budgets et atteignez vos objectifs d'épargne, le tout meme endroit.</p>
+                </div>
+                <div class="check">
+                    <div class="in m1">
+                    <input type="checkbox" checked disabled><p>Suivi automatique de vos transactions</p><br>
+                    </div>
+                    <div class="in m2">
+                    <input type="checkbox" checked disabled><p>Budgets personalisés par catégorie</p><br>
+                    </div>
+                    <div class="in m3">
+                    <input type="checkbox" checked disabled><p>Statistique et rapports mensuels </p><br>
+                    </div>
+                </div>
+        </div>
+         
+    </div>
+   <div class="droit">
+        <div class="ent">
+            <h3>Créer votre compte</h3>
+            <p>Commencez à gérer vos dépenses gratuitement</p>
+        </div>
+        <div class="ins">
+            <div class="name">
+                <label>Nom complet</label><br>
+                <input type="text" id="name" placeholder="Ex : Kokou Adjovi">
+            </div>
+            <div class="mail">
+                <label>Adresse e-mail</label><br>
+                <input type="mail" id="mail" placeholder="vous@example.com">
+            </div>
+            <div class="password">
+                <label>Mot de passe</label><br>
+                <input type="password" id="password" placeholder="....">
+            </div>
+            <div class="password">
+                <label>Confirmer le mot de passe</label><br>
+                <input type="password" id="confirmPassword" placeholder="....">
+            </div>
+        </div>
+         <div class="val">
+                <input type="checkbox" id="check"><p>J'accepte les <a href="mm.href">Condition d'utilisation/Politique de confidentialité</a></p>
+            </div>
+            <button id="button">Créer mon compte</button>
+             <div class="con">
+        <p>Vous avez un compte? <a href="connexion.html">Connectez-vous</a></p>
+    </div>
+    </div>
+   
+    </div>
+    <script>
+    const nameInput = document.getElementById("name");
+const mailInput = document.getElementById("mail");
+const passwordInput = document.getElementById("password");
+const confirmPasswordInput = document.getElementById("confirmPassword");
+const checkInput = document.getElementById("check");
+const button = document.getElementById("button");
+
+button.addEventListener("click", async function (event) {
+
+    event.preventDefault();
+
+    const name = nameInput.value.trim();
+    const email = mailInput.value.trim();
+    const password = passwordInput.value;
+    const confirmPassword = confirmPasswordInput.value;
+
+    if (name === "") {
+        alert("Veuillez entrer votre nom complet.");
+        return;
+    }
+
+    if (email === "") {
+        alert("Veuillez entrer votre adresse e-mail.");
+        return;
+    }
+
+    if (password === "") {
+        alert("Veuillez entrer un mot de passe.");
+        return;
+    }
+
+    if (password.length < 8) {
+        alert("Le mot de passe doit contenir au moins 8 caractères.");
+        return;
+    }
+
+    if (confirmPassword === "") {
+        alert("Veuillez confirmer votre mot de passe.");
+        return;
+    }
+
+    if (password !== confirmPassword) {
+        alert("Les mots de passe ne correspondent pas.");
+        return;
+    }
+
+    if (!checkInput.checked) {
+        alert("Vous devez accepter les conditions d'utilisation.");
+        return;
+    }
+
+    try {
+
+        const response = await fetch("http://localhost:3000/api/register", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.message);
+            return;
+        }
+
+        alert(data.message);
+
+        window.location.href = "connexion.html";
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Impossible de contacter le serveur.");
+
+    }
+});
+    </script>
+</body>
+</html>

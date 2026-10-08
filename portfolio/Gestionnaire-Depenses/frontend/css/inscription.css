@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.all{
+    height: 100vh;
+}
+body{
+    background-color: #1f131300;
+}
+.gauche{
+    width: 39%;
+    height: 100vh;
+    background: url(fond_panneau_gauche.jpg);
+    background-repeat: no-repeat;
+    padding: 42px 43px;
+}
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo img{
+    width: 50px;
+}
+.logo h3{
+    color: white;
+    font-size: 25px;
+}
+.phrase{
+    padding-top: 50px;
+}
+.phrase h2{
+    font-size: 36px;
+    color: white;
+}
+.qu{
+    color: #34CA9D;
+}
+.p{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+.p p{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 560;
+    line-height: 1.5;
+}
+.in{
+    display: flex;
+    padding-bottom: 12px;
+    gap: 12px;
+}
+.in p{
+    color: white;
+}
+.in input[type="checkbox"]{
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid black;
+    cursor: pointer;
+    position: relative;
+}
+.in input[type="checkbox"]:checked{
+    background-color: #34CA9D;
+    border-color: #49319F;
+}
+.in input[type="checkbox"]:checked::after{
+    content: "✓";
+    color: black;
+    font-weight: 900;
+    font-size: 14px;
+    position: absolute;
+    top: 3%;
+    left: 30%;
+}
+.droit{
+    position: absolute;
+    left: 45%;
+    top: 10%;
+    padding: 12px 30px;
+}
+.ent h3{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+}
+.ent p{
+    color: gray;
+}
+.ins{
+    margin-top: 20px;
+}
+.name{
+    margin-bottom: 20px;
+}
+.mail{
+    margin-bottom: 20px;
+}
+.password{
+    margin-bottom: 20px;
+}
+.ins input{
+    padding: 10px 12px;
+    width: 80vh;
+    background-color: #F7F6FB;
+    border: 1px solid #E1E2E6;
+    margin-top: 6px;
+    border-radius: 12px;
+    outline: none;
+}
+.ins label{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 17px;
+    font-weight: 450;
+}
+.val{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.val input{
+    cursor: pointer;
+}
+#button{
+    color: white;
+    font-weight: 500;
+    margin-top: 10px;
+    padding: 8px 30vh;
+    font-size: 17px;
+    border-radius: 15px;
+    border: 1px solid #5B3CC5;
+    outline: none;
+    cursor: pointer;
+    background-color: #5B3CC5;
+}
+.con{
+    text-align: center;
+    padding-top: 10px;
+}
+a{
+    text-decoration: none;
+    color: #5744AF;
+    font-weight: 700;
+}

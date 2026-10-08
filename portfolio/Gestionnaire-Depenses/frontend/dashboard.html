@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tableau de bord — DépensePro</title>
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="dash">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="sidebar">
+    <div class="logo">
+      <span class="badge">€</span>
+      DépensePro
+    </div>
+
+    <nav>
+      <a href="dashboard.html" class="active"><span class="ico"></span> Tableau de bord</a>
+      <a href="#"><span class="ico"></span> Transactions</a>
+      <a href="#"><span class="ico"></span> Budgets</a>
+      <a href="#"><span class="ico"></span> Statistiques</a>
+      <a href="#"><span class="ico"></span> Objectifs d'épargne</a>
+      <a href="#"><span class="ico"></span> Paramètres</a>
+    </nav>
+
+    <div class="user-box">
+      <div class="avatar" id="sidebarAvatar">KA</div>
+      <div>
+        <div class="name" id="sidebarName">Kokou Adjovi</div>
+        <div class="email" id="sidebarEmail">kokou@exemple.com</div>
+      </div>
+    </div>
+    <a href="connexion.html" class="logout" id="logoutBtn">Se déconnecter</a>
+  </aside>
+
+  <!-- ============ CONTENU PRINCIPAL ============ -->
+  <main class="dash-main">
+
+    <div class="dash-header">
+      <div>
+        <h1>Tableau de bord</h1>
+        <p class="subtitle" id="welcomeMsg">Bon retour. Voici un aperçu de vos finances.</p>
+      </div>
+      <div class="header-tools">
+        <div class="search-box">
+          <span>🔍</span>
+          <input type="text" placeholder="Rechercher...">
+        </div>
+        <button class="icon-btn">🔔<span class="dot"></span></button>
+        <div class="avatar-top">KA</div>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:flex-end; margin-bottom:26px;">
+      <button class="btn btn-primary" id="newTxBtn">+ Nouvelle transaction</button>
+    </div>
+
+    <!-- Cartes statistiques -->
+    <section class="stat-grid" id="statGrid">
+      <!-- générées dynamiquement par script.js à partir de demoData.stats -->
+    </section>
+
+    <!-- Graphiques -->
+    <section class="charts-row">
+      <div class="card">
+        <h2>Aperçu des dépenses</h2>
+        <p class="card-sub">Sur les 7 derniers mois</p>
+        <div class="bar-chart" id="barChart"></div>
+      </div>
+
+      <div class="card">
+        <h2>Par catégorie</h2>
+        <p class="card-sub">Ce mois-ci</p>
+        <div class="donut-wrap">
+          <div class="donut" id="donutChart">
+            <div class="hole">
+              <div class="amount" id="donutTotal">0 FCFA</div>
+            </div>
+          </div>
+          <ul class="legend" id="donutLegend"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transactions + budgets -->
+    <section class="bottom-row">
+      <div class="card">
+        <div class="card-head-row">
+          <h2 style="margin:0;">Transactions récentes</h2>
+          <a href="#" class="link-btn">Voir tout</a>
+        </div>
+        <ul class="tx-list" id="txList"></ul>
+      </div>
+
+      <div class="card">
+        <h2>Suivi des budgets</h2>
+        <div id="budgetList" style="margin-top: 18px;"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+<div class="modal" id="transactionModal">
+
+    <div class="modal-content">
+
+        <h2>Nouvelle transaction</h2>
+
+        <label>Type</label>
+
+        <select id="transactionType">
+            <option value="depense">Dépense</option>
+            <option value="revenu">Revenu</option>
+        </select>
+
+
+        <label>Montant</label>
+
+        <input
+            type="number"
+            id="transactionAmount"
+            placeholder="Ex : 5000"
+            min="1"
+        >
+
+
+        <label>Catégorie</label>
+
+        <select id="transactionCategory">
+
+            <option value="Alimentation">
+                Alimentation
+            </option>
+
+            <option value="Transport">
+                Transport
+            </option>
+
+            <option value="Logement">
+                Logement
+            </option>
+
+            <option value="Shopping">
+                Shopping
+            </option>
+
+            <option value="Santé">
+                Santé
+            </option>
+
+            <option value="Autre">
+                Autre
+            </option>
+
+        </select>
+
+
+        <label>Description</label>
+
+        <input
+            type="text"
+            id="transactionDescription"
+            placeholder="Ex : Achat nourriture"
+        >
+
+
+        <div class="modal-buttons">
+
+            <button id="cancelTransaction">
+                Annuler
+            </button>
+
+            <button id="saveTransaction">
+                Ajouter
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+    const loggedIn = sessionStorage.getItem("loggedIn");
+
+    if (loggedIn !== "true") {
+        window.location.href = "connexion.html";
+    }
+
+    const userName = sessionStorage.getItem("userName");
+    const userEmail = sessionStorage.getItem("userEmail");
+
+    const sidebarName = document.getElementById("sidebarName");
+    const sidebarEmail = document.getElementById("sidebarEmail");
+    const sidebarAvatar = document.getElementById("sidebarAvatar");
+    const welcomeMsg = document.getElementById("welcomeMsg");
+
+    if (userName) {
+        sidebarName.textContent = userName;
+        welcomeMsg.textContent = `Bon retour ${userName}. Voici un aperçu de vos finances.`;
+
+        const initials = userName
+            .split(" ")
+            .map(word => word.charAt(0))
+            .join("")
+            .substring(0, 2)
+            .toUpperCase();
+
+        sidebarAvatar.textContent = initials;
+    }
+
+    if (userEmail) {
+        sidebarEmail.textContent = userEmail;
+    }
+
+    const logoutBtn = document.getElementById("logoutBtn");
+
+    logoutBtn.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        sessionStorage.removeItem("loggedIn");
+        sessionStorage.removeItem("userName");
+        sessionStorage.removeItem("userEmail");
+        sessionStorage.removeItem("userId");
+
+        window.location.href = "connexion.html";
+    });
+
+
+    const stats = [
+        {
+            title: "Solde total",
+            amount: "0 FCFA",
+            icon: "💰",
+            className: "balance"
+        },
+        {
+            title: "Revenus",
+            amount: "0 FCFA",
+            icon: "📈",
+            className: "income"
+        },
+        {
+            title: "Dépenses",
+            amount: "0 FCFA",
+            icon: "📉",
+            className: "expense"
+        },
+        {
+            title: "Épargne",
+            amount: "0 FCFA",
+            icon: "🎯",
+            className: "saving"
+        }
+    ];
+
+    const statGrid = document.getElementById("statGrid");
+
+    stats.forEach(function (stat) {
+
+        const card = document.createElement("div");
+
+        card.className = `stat-card ${stat.className}`;
+
+        card.innerHTML = `
+            <div class="stat-icon">${stat.icon}</div>
+            <div class="stat-info">
+                <p>${stat.title}</p>
+                <h3>${stat.amount}</h3>
+            </div>
+        `;
+
+        statGrid.appendChild(card);
+    });
+
+
+    const txList = document.getElementById("txList");
+
+async function loadTransactions() {
+
+    const userId = sessionStorage.getItem("userId");
+
+    if (!userId) {
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+            `http://localhost:3000/api/transactions/${userId}`
+        );
+
+        const transactions = await response.json();
+
+        txList.innerHTML = "";
+
+        if (transactions.length === 0) {
+
+            txList.innerHTML = `
+                <li class="empty-message">
+                    Aucune transaction pour le moment.
+                </li>
+            `;
+
+            return;
+        }
+
+        transactions.forEach(function(transaction) {
+
+            const li = document.createElement("li");
+
+            li.className = "transaction-item";
+
+            const signe =
+                transaction.type === "revenu" ? "+" : "-";
+
+            li.innerHTML = `
+                <div>
+                    <strong>${transaction.category}</strong>
+                    <p>${transaction.description || "Sans description"}</p>
+                </div>
+
+                <span class="${transaction.type}">
+                    ${signe}${Number(transaction.amount).toLocaleString("fr-FR")} FCFA
+                </span>
+            `;
+
+            txList.appendChild(li);
+
+        });
+
+    } catch (error) {
+
+        console.error(error);
+
+        txList.innerHTML = `
+            <li class="empty-message">
+                Impossible de charger les transactions.
+            </li>
+        `;
+
+    }
+}
+
+loadTransactions();
+
+    const budgetList = document.getElementById("budgetList");
+
+    const budgets = [];
+
+    if (budgets.length === 0) {
+
+        budgetList.innerHTML = `
+            <p class="empty-message">
+                Aucun budget configuré pour le moment.
+            </p>
+        `;
+
+    }
+
+
+    const donutTotal = document.getElementById("donutTotal");
+
+    donutTotal.textContent = "0 FCFA";
+
+
+    const newTxBtn = document.getElementById("newTxBtn");
+
+    const transactionModal = document.getElementById("transactionModal");
+
+const transactionType =
+    document.getElementById("transactionType");
+
+const transactionAmount =
+    document.getElementById("transactionAmount");
+
+const transactionCategory =
+    document.getElementById("transactionCategory");
+
+const transactionDescription =
+    document.getElementById("transactionDescription");
+
+const saveTransaction =
+    document.getElementById("saveTransaction");
+
+const cancelTransaction =
+    document.getElementById("cancelTransaction");
+
+
+newTxBtn.addEventListener("click", function () {
+
+    transactionModal.style.display = "flex";
+
+});
+
+
+cancelTransaction.addEventListener("click", function () {
+
+    transactionModal.style.display = "none";
+
+});
+
+
+saveTransaction.addEventListener("click", async function () {
+
+    const type = transactionType.value;
+
+    const amount = Number(transactionAmount.value);
+
+    const category = transactionCategory.value;
+
+    const description =
+        transactionDescription.value.trim();
+
+    const userId =
+        sessionStorage.getItem("userId");
+
+
+    if (!amount || amount <= 0) {
+
+        alert("Veuillez entrer un montant valide.");
+
+        return;
+    }
+
+
+    if (!userId) {
+
+        alert("Utilisateur non connecté.");
+
+        window.location.href = "connexion.html";
+
+        return;
+    }
+
+
+    try {
+
+        const response = await fetch(
+            "http://localhost:3000/api/transactions",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify({
+
+                    user_id: Number(userId),
+
+                    type: type,
+
+                    amount: amount,
+
+                    category: category,
+
+                    description: description
+
+                })
+            }
+        );
+
+
+        const data = await response.json();
+
+
+        if (!response.ok) {
+
+            alert(data.message);
+
+            return;
+        }
+
+
+        alert("Transaction ajoutée avec succès !");
+
+
+        transactionModal.style.display = "none";
+
+
+        transactionAmount.value = "";
+
+        transactionDescription.value = "";
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Impossible de contacter le serveur.");
+
+    }
+
+});
+</script>
+</body>
+</html>

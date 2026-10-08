@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="GP.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>Generateur de mot de passe</title>
+</head>
+<body>
+    <div class="container">
+        <h3>
+            <i class="fa-solid fa-lock"></i>
+            Generateur de mot de passe
+        </h3>
+        <p>Créez des mots des passes forts et sécurisés en un clic</p>
+        <div class="bar">
+        <div class="password-box">
+            <input type="text" id="password" placeholder="MOT DE PASSE GENERé" readonly>
+            <button id="copy">
+                <i class="fa-regular fa-copy"></i>
+                Copier
+            </button>
+        </div>
+        <div class="lengt">
+            <label>Longueur du mot de passe: <span id="lengthValue">16</span></label>
+            <input type="range" id="length" min="6" max="30" value="16">
+        </div>
+        <div class="enca">
+            <p class="in">Inclure:</p>
+        <div class="options">
+            <div class="option">
+                <input type="checkbox" id="lettre" checked>
+                <label for="lettre">
+                    <span class="Aa">Aa</span><br>
+                    Lettres Majuscules
+                </label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="minuscules" checked>
+                <label for="minuscules">
+                    <span class="aa">aa</span><br>
+                    Lettres minuscules
+                </label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="chiffres" checked>
+                <label for="chiffres">
+                    <span class="ch">123</span>
+                    Chriffres
+                </label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="caractere" checked>
+                <label for="caractere">
+                    <span class="carac">!@#</span><BR>
+                    Caractères spéciaux
+                </label>
+            </div>
+        </div>
+        </div>
+        <button id="generate">
+            <i class="fa-solid fa-rotate"></i>
+            Générer un nouveau mot de passe
+        </button>
+    </div>
+    <script src="GP.js"></script>
+</body>
+</html>

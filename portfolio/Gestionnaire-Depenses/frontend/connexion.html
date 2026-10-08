@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire-Depenses</title>
+    <link rel="stylesheet" href="css/connexion.css">
+</head>
+<body>
+    <div class="all">
+    <div class="gauche">
+        <div class="logo">
+            <img src="image.png">
+            <h3>DépensePro</h3>
+        </div>
+        <div class="phrase">
+            <h2>Content de vous<br><span class="qu">revoir</span></h2>
+                <div class="p">
+                    <p>Connectez-vous pour retrouver vos<br>budgets, vos dépenses et vos<br>objectifs d'épargne.</p>
+                </div>
+               <div class="stat">
+                <h3>+50k</h3>
+                <p>Utilisateurs actifs</p>
+               </div>
+               <div class="stat mn">
+                <h3>20%</h3>
+                <p>Epargne moyenne</p>
+               </div>
+        </div>
+         
+    </div>
+   <div class="droit">
+        <div class="ent">
+            <h3>Connexion</h3>
+            <p>Ravi de vous revoir. Entrez vos identifiants</p>
+        </div>
+        <div class="ins">
+            <div class="mail">
+                <label>Adresse e-mail</label><br>
+                <input type="mail" id="mail" placeholder="vous@example.com">
+            </div>
+            <div class="password">
+                <label>Mot de passe</label><br>
+                <input type="password" id="password" placeholder="....">
+            </div>
+        </div>
+         <div class="val">
+                <p><input type="checkbox" id="check">Se souvenir de moi</p>
+                <div>
+                    <a href="#">Mot de passe oublié</a>
+                </div>
+            </div>
+            <button id="button">Connectez-vous</button>
+             <div class="con">
+        <p>Vous n'avez pas de comptes ?<a href="inscription.html">Créer un compte</a></p>
+    </div>
+    </div>
+    </div>
+    <script>
+const mailInput = document.getElementById("mail");
+const passwordInput = document.getElementById("password");
+const rememberInput = document.getElementById("check");
+const button = document.getElementById("button");
+
+button.addEventListener("click", async function (event) {
+
+    event.preventDefault();
+
+    const email = mailInput.value.trim();
+    const password = passwordInput.value;
+
+    if (email === "") {
+        alert("Veuillez entrer votre adresse e-mail.");
+        return;
+    }
+
+    if (password === "") {
+        alert("Veuillez entrer votre mot de passe.");
+        return;
+    }
+
+    try {
+
+        const response = await fetch("http://localhost:3000/api/login", {
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.message);
+            return;
+        }
+
+        sessionStorage.setItem("loggedIn", "true");
+        sessionStorage.setItem("userName", data.user.name);
+        sessionStorage.setItem("userEmail", data.user.email);
+        sessionStorage.setItem("userId", data.user.id);
+
+        if (rememberInput.checked) {
+            localStorage.setItem("rememberMe", "true");
+        }
+
+        alert("Connexion réussie !");
+
+        window.location.href = "dashboard.html";
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Impossible de contacter le serveur.");
+
+    }
+});
+</script>
+</body>
+</html>

@@ -12,12 +12,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- NAVBAR -->
-  <header class="navbar" id="navbar">
-    <div class="container nav-inner">
+  <header class="barre-nav" id="navbar">
+    <div class="conteneur nav-interieur">
       <a href="#accueil" class="logo">&lt;/&gt; CALEB</a>
-      <nav class="nav-links" id="nav-links" aria-label="Navigation principale">
+      <nav class="liens-nav" id="liens-nav" aria-label="Navigation principale">
         <a href="#accueil">Accueil</a>
         <a href="#apropos">À propos</a>
         <a href="#competences">Compétences</a>
@@ -25,57 +23,53 @@
         <a href="#parcours">Parcours</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="#contact" class="btn btn-small nav-cta"><i class="fa-solid fa-paper-plane"></i> Me contacter</a>
-      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+      <a href="#contact" class="bouton bouton-petit bouton-nav"><i class="fa-solid fa-paper-plane"></i> Me contacter</a>
+      <button class="menu-burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="liens-nav">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
-
   <main>
-    <!-- HERO -->
     <section class="hero" id="accueil">
-      <div class="container hero-inner">
-        <div class="hero-text reveal">
-          <p class="hero-greeting">Bonjour, je suis</p>
-          <h1 class="hero-name">Caleb</h1>
-          <h2 class="hero-role">Développeur <span>Web &amp; Mobile</span></h2>
-          <p class="hero-desc">
+      <div class="conteneur hero-interieur">
+        <div class="hero-texte apparition">
+          <p class="hero-salutation">Bonjour, je suis</p>
+          <h1 class="hero-nom">Caleb</h1>
+          <h2 class="hero-titre">Développeur <span>Web &amp; Mobile</span></h2>
+          <p class="hero-description">
             Passionné par la technologie et l'innovation, je crée des applications web et mobiles
             modernes, performantes et utiles. Actuellement en 1<sup>re</sup> DWM au lycée HTC-CETIP.
           </p>
-          <div class="hero-buttons">
-            <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-            <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Me contacter</a>
-            <a href="https://wa.me/22960315810" target="_blank" rel="noopener" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <div class="hero-boutons">
+            <a href="#projets" class="bouton bouton-principal">Voir mes projets</a>
+            <a href="#contact" class="bouton bouton-contour"><i class="fa-solid fa-paper-plane"></i> Me contacter</a>
+            <a href="https://wa.me/22960315810" target="_blank" rel="noopener" class="bouton bouton-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
           </div>
         </div>
-        <div class="hero-visual reveal">
-          <div class="photo-frame">
+        <div class="hero-visuel apparition">
+          <div class="cadre-photo">
             <img src="images/caleb.jpg" alt="Photo de Caleb, développeur web et mobile"
                  onerror="this.style.display='none'">
           </div>
-          <span class="code-icon" aria-hidden="true">&lt;/&gt;</span>
+          <span class="icone-code" aria-hidden="true">&lt;/&gt;</span>
         </div>
       </div>
-      <ul class="tech-strip container reveal">
+      <ul class="bande-techno conteneur apparition">
         <li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Responsive</li><li>Git</li><li>GitHub</li>
       </ul>
     </section>
-
-    <!-- À PROPOS -->
     <section class="section" id="apropos">
-      <div class="container two-cols">
-        <div class="reveal">
-          <p class="eyebrow">À propos de moi</p>
-          <h2 class="section-title">Qui suis-je ?</h2>
+      <div class="conteneur deux-colonnes">
+        <div class="apparition">
+          <p class="sur-titre">À propos de moi</p>
+          <h2 class="titre-section">Qui suis-je ?</h2>
           <p>Je m'appelle <strong>Caleb</strong>, passionné par le développement web et mobile. J'aime apprendre,
             relever des défis et créer des projets qui ont un réel impact.</p>
           <p>Je suis actuellement en classe de 1<sup>re</sup> au lycée HTC-CETIP, dans la filière
             Développement Web et Mobile. Mon objectif est de devenir un développeur professionnel et de construire
             des solutions qui facilitent la vie des gens.</p>
         </div>
-        <div class="card info-card reveal">
+        <div class="carte carte-info apparition">
           <dl>
             <div><dt>Nom</dt><dd>Caleb</dd></div>
             <div><dt>Niveau</dt><dd>1<sup>re</sup></dd></div>
@@ -86,115 +80,111 @@
         </div>
       </div>
     </section>
-
-    <!-- COMPÉTENCES -->
-    <section class="section section-alt" id="competences">
-      <div class="container">
-        <p class="eyebrow">Mes compétences</p>
-        <h2 class="section-title">Ce que je maîtrise</h2>
-        <p class="section-intro">Les technologies que j'utilise aujourd'hui et sur lesquelles je continue de progresser.</p>
-        <div class="grid skills-grid">
-          <article class="card skill reveal">
+    <section class="section section-alternee" id="competences">
+      <div class="conteneur">
+        <p class="sur-titre">Mes compétences</p>
+        <h2 class="titre-section">Ce que je maîtrise</h2>
+        <p class="intro-section">Les technologies que j'utilise aujourd'hui et sur lesquelles je continue de progresser.</p>
+        <div class="grille grille-competences">
+          <article class="carte competence apparition">
             <i class="fa-solid fa-code" aria-hidden="true"></i>
             <h3>HTML5</h3>
             <p>Structure sémantique et accessible des pages.</p>
-            <div class="bar"><span data-level="90"></span></div>
+            <div class="barre"><span data-niveau="90"></span></div>
           </article>
-          <article class="card skill reveal">
+          <article class="carte competence apparition">
             <i class="fa-solid fa-palette" aria-hidden="true"></i>
             <h3>CSS3</h3>
             <p>Mise en page, animations et design responsive.</p>
-            <div class="bar"><span data-level="85"></span></div>
+            <div class="barre"><span data-niveau="85"></span></div>
           </article>
-          <article class="card skill reveal">
+          <article class="carte competence apparition">
             <i class="fa-brands fa-js" aria-hidden="true"></i>
             <h3>JavaScript</h3>
             <p>Interactivité, DOM et validation de formulaires.</p>
-            <div class="bar"><span data-level="75"></span></div>
+            <div class="barre"><span data-niveau="75"></span></div>
           </article>
-          <article class="card skill reveal">
+          <article class="carte competence apparition">
             <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i>
             <h3>Responsive Design</h3>
             <p>Sites adaptés aux ordinateurs, tablettes et téléphones.</p>
-            <div class="bar"><span data-level="80"></span></div>
+            <div class="barre"><span data-niveau="80"></span></div>
           </article>
-          <article class="card skill reveal">
+          <article class="carte competence apparition">
             <i class="fa-brands fa-bootstrap" aria-hidden="true"></i>
             <h3>Bootstrap</h3>
             <p>Framework CSS pour des interfaces rapides.</p>
-            <div class="bar"><span data-level="50"></span></div>
+            <div class="barre"><span data-niveau="50"></span></div>
           </article>
-          <article class="card skill reveal">
+          <article class="carte competence apparition">
             <i class="fa-solid fa-database" aria-hidden="true"></i>
             <h3>Bases de données</h3>
             <p>Modélisation (MCD) et requêtes SQL de base.</p>
-            <div class="bar"><span data-level="50"></span></div>
+            <div class="barre"><span data-niveau="50"></span></div>
           </article>
-          <article class="card skill reveal">
+          <article class="carte competence apparition">
             <i class="fa-brands fa-git-alt" aria-hidden="true"></i>
             <h3>Git / GitHub</h3>
             <p>Suivi de versions et partage de mes projets.</p>
-            <div class="bar"><span data-level="70"></span></div>
+            <div class="barre"><span data-niveau="70"></span></div>
           </article>
-          <article class="card skill reveal">
+          <article class="carte competence apparition">
             <i class="fa-solid fa-globe" aria-hidden="true"></i>
             <h3>Développement Web</h3>
             <p>Création de sites vitrines et d'applications front-end.</p>
-            <div class="bar"><span data-level="75"></span></div>
+            <div class="barre"><span data-niveau="75"></span></div>
           </article>
-          <article class="card skill reveal">
+          <article class="carte competence apparition">
             <i class="fa-solid fa-mobile-retro" aria-hidden="true"></i>
             <h3>Développement Mobile</h3>
             <p>Découverte des applications mobiles, en progression.</p>
-            <div class="bar"><span data-level="40"></span></div>
+            <div class="barre"><span data-niveau="40"></span></div>
           </article>
         </div>
       </div>
     </section>
-
-    <!-- PROJETS -->
     <section class="section" id="projets">
-      <div class="container">
-        <p class="eyebrow">Mes projets</p>
-        <h2 class="section-title">Projets réalisés</h2>
-        <div class="filters" role="group" aria-label="Filtrer les projets">
-          <button class="filter-btn active" data-filter="all">Tous</button>
-          <button class="filter-btn" data-filter="web">Web</button>
-          <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+      <div class="conteneur">
+        <p class="sur-titre">Mes projets</p>
+        <h2 class="titre-section">Projets réalisés</h2>
+        <div class="filtres" role="group" aria-label="Filtrer les projets">
+          <button class="bouton-filtre actif" data-filtre="all">Tous</button>
+          <button class="bouton-filtre" data-filtre="web">Web</button>
+          <button class="bouton-filtre" data-filtre="fullstack">Full Stack</button>
         </div>
-        <div class="grid projects-grid">
-          <article class="card project reveal" data-category="web">
-            <div class="project-img"><i class="fa-solid fa-key" aria-hidden="true"></i></div>
-            <div class="project-body">
+        <div class="grille grille-projets">
+          <article class="carte projet apparition" data-categorie="web">
+            <div class="projet-image"><i class="fa-solid fa-key" aria-hidden="true"></i></div>
+            <div class="projet-corps">
               <h3>Générateur de mots de passe</h3>
               <p>Application permettant de générer des mots de passe personnalisés et sécurisés.</p>
-              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-              <div class="project-links">
-                <a href="LIEN_DEMO_A_REMPLACER" target="_blank" rel="noopener">Voir le projet</a>
+              <ul class="etiquettes"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <div class="projet-liens">
+                <a href="Generateur%20JS/www/index.html" target="_blank" rel="noopener">Voir le projet</a>
                 <a href="LIEN_GITHUB_A_REMPLACER" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
               </div>
             </div>
           </article>
-          <article class="card project reveal" data-category="fullstack">
-            <div class="project-img"><i class="fa-solid fa-wallet" aria-hidden="true"></i></div>
-            <div class="project-body">
+          <article class="carte projet apparition" data-categorie="fullstack">
+            <div class="projet-image"><i class="fa-solid fa-wallet" aria-hidden="true"></i></div>
+            <div class="projet-corps">
               <h3>DépensePro</h3>
               <p>Application de gestion des dépenses permettant de suivre ses transactions et son budget.</p>
-              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Node.js</li><li>Express</li><li>SQLite</li></ul>
-              <div class="project-links">
-                <a href="LIEN_DEMO_A_REMPLACER" target="_blank" rel="noopener">Voir le projet</a>
+              <ul class="etiquettes"><li>HTML</li><li>CSS</li><li>JavaScript</li><li>Node.js</li><li>Express</li><li>SQLite</li></ul>
+              <div class="projet-liens">
+                <a href="Gestionnaire-Depenses/frontend/connexion.html" target="_blank" rel="noopener">Voir le projet</a>
                 <a href="LIEN_GITHUB_A_REMPLACER" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
               </div>
             </div>
           </article>
-          <article class="card project reveal" data-category="web">
-            <div class="project-img"><i class="fa-solid fa-leaf" aria-hidden="true"></i></div>
-            <div class="project-body">
+          <article class="carte projet apparition" data-categorie="web">
+            <div class="projet-image"><i class="fa-solid fa-leaf" aria-hidden="true"></i></div>
+            <div class="projet-corps">
               <h3>GLS Bénin</h3>
               <p>Site web moderne réalisé autour d'un service au Bénin.</p>
-              <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
-              <div class="project-links">
-                <a href="LIEN_DEMO_A_REMPLACER" target="_blank" rel="noopener">Voir le projet</a>
+              <ul class="etiquettes"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+              <div class="projet-liens">
+                <a href="gls-site%20(2)/index.html" target="_blank" rel="noopener">Voir le projet</a>
                 <a href="LIEN_GITHUB_A_REMPLACER" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
               </div>
             </div>
@@ -202,23 +192,21 @@
         </div>
       </div>
     </section>
-
-    <!-- PARCOURS -->
-    <section class="section section-alt" id="parcours">
-      <div class="container">
-        <p class="eyebrow">Mon parcours</p>
-        <h2 class="section-title">Formation &amp; objectifs</h2>
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <span class="dot"></span>
-            <div class="card">
+    <section class="section section-alternee" id="parcours">
+      <div class="conteneur">
+        <p class="sur-titre">Mon parcours</p>
+        <h2 class="titre-section">Formation &amp; objectifs</h2>
+        <div class="frise">
+          <div class="frise-element apparition">
+            <span class="point"></span>
+            <div class="carte">
               <span class="badge">En cours</span>
               <h3>1<sup>re</sup> — Développement Web et Mobile (DWM)</h3>
               <p>Lycée HTC-CETIP · 2025 – 2026</p>
             </div>
           </div>
         </div>
-        <div class="card goals reveal">
+        <div class="carte objectifs apparition">
           <h3>Mes objectifs</h3>
           <ul>
             <li><i class="fa-solid fa-check"></i> Progresser en développement web et mobile</li>
@@ -228,78 +216,71 @@
         </div>
       </div>
     </section>
-
-    <!-- CONTACT -->
     <section class="section" id="contact">
-      <div class="container two-cols">
-        <div class="reveal">
-          <p class="eyebrow">Contact</p>
-          <h2 class="section-title">Restons en contact</h2>
+      <div class="conteneur deux-colonnes">
+        <div class="apparition">
+          <p class="sur-titre">Contact</p>
+          <h2 class="titre-section">Restons en contact</h2>
           <p>Un projet, une question ou simplement envie d'échanger ? Écrivez-moi.</p>
-          <ul class="contact-list">
+          <ul class="liste-contact">
             <li><i class="fa-solid fa-envelope"></i> <a href="mailto:"memecaleb595@gmail.com">memecaleb595@gmail.com</a></li>
             <li><i class="fa-brands fa-whatsapp"></i> <a href="https://wa.me/22960315810" target="_blank" rel="noopener">+229 60 31 58 10</a></li>
             <li><i class="fa-solid fa-location-dot"></i> Bénin</li>
           </ul>
-          <div class="socials">
+          <div class="reseaux">
             <a href="https://github.com/memecaleb595-sudo" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
             <a href="https://wa.me/22960315810" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
             <a href="LIEN_LINKEDIN_A_REMPLACER" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
             <a href="mailto:memecaleb595@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
           </div>
         </div>
-
-        <form class="card contact-form reveal" id="contact-form" novalidate>
-          <div class="field">
-            <label for="name">Nom</label>
-            <input type="text" id="name" name="name" placeholder="Votre nom" required>
-            <small class="error" id="name-error"></small>
+        <form class="carte formulaire-contact apparition" id="formulaire-contact" novalidate>
+          <div class="champ">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+            <small class="erreur" id="nom-erreur"></small>
           </div>
-          <div class="field">
+          <div class="champ">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-            <small class="error" id="email-error"></small>
+            <small class="erreur" id="email-erreur"></small>
           </div>
-          <div class="field">
-            <label for="subject">Sujet</label>
-            <input type="text" id="subject" name="subject" placeholder="Sujet de votre message" required>
-            <small class="error" id="subject-error"></small>
+          <div class="champ">
+            <label for="sujet">Sujet</label>
+            <input type="text" id="sujet" name="sujet" placeholder="Sujet de votre message" required>
+            <small class="erreur" id="sujet-erreur"></small>
           </div>
-          <div class="field">
+          <div class="champ">
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
-            <small class="error" id="message-error"></small>
+            <small class="erreur" id="message-erreur"></small>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Envoyer</button>
-          <p class="form-status" id="form-status" role="status"></p>
+          <button type="submit" class="bouton bouton-principal bouton-bloc">Envoyer</button>
+          <p class="statut-formulaire" id="statut-formulaire" role="status"></p>
         </form>
       </div>
     </section>
   </main>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
+  <footer class="pied">
+    <div class="conteneur pied-interieur">
       <div>
         <p class="logo">&lt;/&gt; CALEB</p>
         <p>« Développeur Web &amp; Mobile »</p>
       </div>
-      <nav class="footer-links" aria-label="Liens du pied de page">
+      <nav class="pied-liens" aria-label="Liens du pied de page">
         <a href="#accueil">Accueil</a>
         <a href="#apropos">À propos</a>
         <a href="#projets">Projets</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div class="socials">
+      <div class="reseaux">
         <a href="https://github.com/memecaleb595-sudo" aria-label="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
         <a href="https://wa.me/22960315810" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i></a>
         <a href="LIEN_LINKEDIN_A_REMPLACER" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
       </div>
     </div>
   </footer>
-
-  <button class="back-to-top" id="back-to-top" aria-label="Retour en haut"><i class="fa-solid fa-arrow-up"></i></button>
-
+  <button class="retour-haut" id="retour-haut" aria-label="Retour en haut"><i class="fa-solid fa-arrow-up"></i></button>
   <script src="script.js"></script>
 </body>
 </html>
